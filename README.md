@@ -6,7 +6,7 @@
 
 ### Links
 
-- Live Site URL: [My Finished Design](https://stoic-albattani-2b34e3.netlify.app/)
+- Live Site URL: [My Finished Design](https://nifty-mcnulty-2f19fb.netlify.app/)
 
 ### Built with
 
