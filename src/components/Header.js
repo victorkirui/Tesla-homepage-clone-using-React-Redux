@@ -92,7 +92,7 @@ const Menu = styled.div`
         font-size:15px;
         border-radius:15px;
         background:transparent;
-        font-weight:600;
+        font-weight:500;
         &:hover{
             background:rgba(0,0,0,0.1);
             transition:all 0.5s;
@@ -109,7 +109,7 @@ const RightMenu = styled.div`
         padding:10px 12px;
         font-size:15px;
         border-radius:15px;
-        font-weight:600;
+        font-weight:500;
         background:transparent;
         &:hover{
             background:rgba(0,0,0,0.1);
@@ -140,7 +140,7 @@ const MobileMenu = styled.div`
         padding:10px 20px;
         font-size:15px;
         border-radius:15px;
-        font-weight:600;
+        font-weight:500;
         background:transparent;
         width:250px;
         text-align:left;
