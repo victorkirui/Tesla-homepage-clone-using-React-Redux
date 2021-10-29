@@ -2,10 +2,14 @@ import React,{ useState,useEffect } from 'react'
 import styled from 'styled-components'
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom'
+import { selectCars } from '../features/car/carSlice'
+import { useSelector } from 'react-redux'
 
 function Header() {
     const [mobileOpen,setMobileOpen] = useState(false);
     const [scroll,setScroll] = useState(false);
+
+    const cars = useSelector(selectCars);
 
     useEffect(()=>{
         window.addEventListener('scroll',()=>{
@@ -26,10 +30,9 @@ function Header() {
         <HeaderContainer scroll={scroll} >
             <img src='./images/logo.svg' alt="logo"/>
             <Menu>
-                    <Link to="#">Model S</Link>
-                    <Link to="#">Model 3</Link>
-                    <Link to="#">Model X</Link>
-                    <Link to="#">Model Y</Link>
+                { cars && cars.map((car,index) => (
+                    <Link to="#" key={index}>{car}</Link>
+                ))}
                     <Link to="#">Solar Roof</Link>
                     <Link to="#">Solar Panels</Link>
             </Menu>
@@ -44,12 +47,16 @@ function Header() {
                 <CloseWrap>
                     <Close onClick={() => setMobileOpen(false)}/>
                 </CloseWrap>
-                <a href="/">Model S</a>
-                <a href="/">Model 3</a>
-                <a href="/">Model X</a>
-                <a href="/">Model Y</a>
-                <a href="/">Solar Roof</a>
-                <a href="/">Solar Panels</a>
+                { cars && cars.map((car,index)=>(
+                    <Link to="#" key={index}>{car}</Link>
+                ))}
+                <Link to="#">Solar Roof</Link>
+                <Link to="#">Solar Panels</Link>
+                <Link to="#">Existing Inventory</Link>
+                <Link to="#">Used Inventory</Link>
+                <Link to="#">Trade-In</Link>
+                <Link to="#">Tst Drive</Link>
+                <Link to="#">Power Wall</Link>
             </MobileMenu>
         </HeaderContainer>
     )
@@ -85,6 +92,7 @@ const Menu = styled.div`
         font-size:15px;
         border-radius:15px;
         background:transparent;
+        font-weight:600;
         &:hover{
             background:rgba(0,0,0,0.1);
             transition:all 0.5s;
@@ -93,7 +101,6 @@ const Menu = styled.div`
             display:none;
         }
     }
-
 `
 const RightMenu = styled.div`
     display:flex;
@@ -102,6 +109,7 @@ const RightMenu = styled.div`
         padding:10px 12px;
         font-size:15px;
         border-radius:15px;
+        font-weight:600;
         background:transparent;
         &:hover{
             background:rgba(0,0,0,0.1);
@@ -132,6 +140,7 @@ const MobileMenu = styled.div`
         padding:10px 20px;
         font-size:15px;
         border-radius:15px;
+        font-weight:600;
         background:transparent;
         width:250px;
         text-align:left;
